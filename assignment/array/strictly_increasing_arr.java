@@ -1,4 +1,3 @@
-import java.io.*; // for handling input/output
 import java.util.*; // contains Collections framework
 
 // don't change the name of this class
@@ -18,52 +17,58 @@ public class Main {
         arr[0] = 1;
         boolean flag=false;
         int start=2;
-        for (int i=1;i<len;i++)
+        outerloop:
+        for (int i=1;i<len-1;i++)
         {
-            if (i<len-1)
+            if (arr[i] <=arr[i-1])
             {
-                if ((arr[i] > arr[i-1]) && (arr[i] < arr[i+1]))
+                flag=true;
+                break;
+            }
+            else if (arr[i] >=arr[i+1])
+            {
+                for(int j=start;j<=arr[i]/2;j++)
                 {
-                    continue;
-                }
-                else
-                {
-                    for (int k=start;k<=arr[i]/2;k++)
+                    if ((arr[i]%j==0) && (j > arr[i-1]) && (j<arr[i+1]))
                     {
-                        if ((arr[i]%k==0) && ((k>arr[i-1]) && k<arr[i+1]))
-                        {
-                                arr[i] = k;
-                                start=k+1;
-                                flag=false;
-                                break;
-                        }
-                        else
-                        {
-                            flag=true;
-                            break;
-                        }
+                        arr[i]=j;
+                        start=j+1;
+                        flag=false;
+                        break;
+                    }
+                    else {
+                        flag=true;
                     }
                 }
             }
-            else
+            else if (arr[i]<arr[i+1])
             {
-                if ((arr[i] >= arr[i-1]))
+                for(int j=start;j<=arr[i];j++)
                 {
-                    break;
-                }
-                else 
-                {
-                    flag=true;
+                    if ((arr[i]%j==0) && (j > arr[i-1]) && (j<arr[i+1]))
+                    {
+                        arr[i]=j;
+                        start=j+1;
+                        flag=false;
+                        break;
+                    }
+                    else {
+                        flag=true;
+                    }
                 }
             }
+            if (flag)
+            {
+                break outerloop;
+            }   
         }
         if (flag==true)
         {
-            System.out.println("No");
+            System.out.println("NO");
         }
         else if (flag==false)
         {
-            System.out.println("Yes");
+            System.out.println("YES");
         }
     }
 }
