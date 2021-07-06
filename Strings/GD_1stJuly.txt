@@ -1,0 +1,115 @@
+Strings in java
+=================
+
+Strings in Java are Objects 
+backed by internally char array
+
+
+Strings are immutable in Java ( 2 questions why strings are immutable? , How to make a class immutable)
+
+Strings are used in hashmap as a code
+strings are used for caching
+strings are used router, 
+strings are for device driver classes in JAVA 
+
+s1 
+
+
+
+How to define strings in java
+
+String s1 = "starwars"; - ----1
+String s1 = new String("starwars");--- 2
+
+Whenever strings are created without "new" key, there are created as string literals in string
+constant pool. This helps JVM to initialize the string fast.
+
+
+Java memory
+
+string constant pool
+Heap = objects are created on heap memory
+
+String s2 = "starwars"; // string constant pool;
+
+  s1=  starwars
+  s2
+
+BUT NOW
+
+ String s1 = new String("starwars");
+ String s2=  new String("starwars");
+
+
+Difference between "==" and equals method
+
+
+== (this compares the address of two variables, two objects and two data types)
+
+equals() -- it does content comparison...
+
+
+The main difference between the .equals() method and == operator 
+is that one is a method and the other is the operator.
+
+
+We can use == operators for reference comparison (address comparison) and
+ .equals() method for content comparison. In simple words, == checks 
+if both objects point to the same memory location whereas .equals() 
+evaluates to the comparison of values in the objects.
+
+
+public class Test {
+    public static void main(String[] args)
+    {
+
+T F T T
+        String s1 = "HELLO";
+        String s2 = "DELHI";
+        String s3 =  new String("HELLO");
+        System.out.println(s1 == s2); = true
+        System.out.println(s1 == s3); = false
+        System.out.println(s1.equals(s2)); true
+        System.out.println(s1.equals(s3)); true
+    }
+}
+
+
+Anagrams
+
+ LISTEN SILENT
+
+Collections.sort("LISTEN");
+Collections.sort("SILENT");
+eilnst
+
+  if( s1.equals(s2))
+  {
+
+    SYSO("both strings are anagrams of each other:)
+
+  }
+
+  else
+    "No anagrams found"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
